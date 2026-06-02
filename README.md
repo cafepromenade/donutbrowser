@@ -8,16 +8,16 @@
 <br>
 
 <p align="center">
-  <a style="text-decoration: none;" href="https://github.com/zhom/donutbrowser/releases/latest" target="_blank"><img alt="GitHub release" src="https://img.shields.io/github/v/release/zhom/donutbrowser">
+  <a style="text-decoration: none;" href="https://github.com/cafepromenade/donutbrowser/releases/latest" target="_blank"><img alt="GitHub release" src="https://img.shields.io/github/v/release/cafepromenade/donutbrowser">
   </a>
-  <a style="text-decoration: none;" href="https://github.com/zhom/donutbrowser/issues" target="_blank">
+  <a style="text-decoration: none;" href="https://github.com/cafepromenade/donutbrowser/issues" target="_blank">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs Welcome">
   </a>
-  <a style="text-decoration: none;" href="https://github.com/zhom/donutbrowser/blob/main/LICENSE" target="_blank">
+  <a style="text-decoration: none;" href="https://github.com/cafepromenade/donutbrowser/blob/main/LICENSE" target="_blank">
     <img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg" alt="License">
   </a>
-  <a style="text-decoration: none;" href="https://github.com/zhom/donutbrowser/network/members" target="_blank">
-    <img src="https://img.shields.io/github/forks/zhom/donutbrowser?style=social" alt="GitHub forks">
+  <a style="text-decoration: none;" href="https://github.com/cafepromenade/donutbrowser/network/members" target="_blank">
+    <img src="https://img.shields.io/github/forks/cafepromenade/donutbrowser?style=social" alt="GitHub forks">
   </a>
 </p>
 
@@ -41,12 +41,14 @@
 
 ## Install
 
+GitHub Releases are created automatically from the app version on pushes to `main`, and installer assets are built by the `Release Installers` workflow.
+
 <!-- install-links-start -->
 ### macOS
 
 | | Apple Silicon | Intel |
 |---|---|---|
-| **DMG** | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_aarch64.dmg) | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64.dmg) |
+| **DMG** | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_aarch64.dmg) | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64.dmg) |
 
 Or install via Homebrew:
 
@@ -56,15 +58,15 @@ brew install --cask donut
 
 ### Windows
 
-[Download Windows Installer (x64)](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64-setup.exe) · [Portable (x64)](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64-portable.zip)
+[Download Windows Installer (x64)](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64-setup.exe) · [Portable (x64)](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_x64-portable.zip)
 
 ### Linux
 
 | Format | x86_64 | ARM64 |
 |---|---|---|
-| **deb** | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_amd64.deb) | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_arm64.deb) |
-| **rpm** | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut-0.25.2-1.x86_64.rpm) | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut-0.25.2-1.aarch64.rpm) |
-| **AppImage** | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_amd64.AppImage) | [Download](https://github.com/zhom/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_aarch64.AppImage) |
+| **deb** | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_amd64.deb) | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_arm64.deb) |
+| **rpm** | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut-0.25.2-1.x86_64.rpm) | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut-0.25.2-1.aarch64.rpm) |
+| **AppImage** | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_amd64.AppImage) | [Download](https://github.com/cafepromenade/donutbrowser/releases/download/v0.25.2/Donut_0.25.2_aarch64.AppImage) |
 <!-- install-links-end -->
 
 Or install via package manager:
@@ -89,7 +91,7 @@ If that gives an EGL display error, try adding `WEBKIT_DISABLE_DMABUF_RENDERER=1
 ### Nix
 
 ```bash
-nix run github:zhom/donutbrowser#release-start
+nix run github:cafepromenade/donutbrowser#release-start
 ```
 
 ## Self-Hosting Sync
@@ -102,16 +104,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Community
 
-- **Issues**: [GitHub Issues](https://github.com/zhom/donutbrowser/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/zhom/donutbrowser/discussions)
+- **Issues**: [GitHub Issues](https://github.com/cafepromenade/donutbrowser/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/cafepromenade/donutbrowser/discussions)
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=zhom%2Fdonutbrowser&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=cafepromenade%2Fdonutbrowser&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=zhom/donutbrowser&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=zhom/donutbrowser&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=zhom/donutbrowser&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=cafepromenade/donutbrowser&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=cafepromenade/donutbrowser&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=cafepromenade/donutbrowser&type=date&legend=top-left" />
  </picture>
 </a>
 
