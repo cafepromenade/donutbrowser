@@ -1,0 +1,46 @@
+name: Sync Upstream And Unlock
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.repository == 'cafepromenade/donutbrowser'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge upstream
+        run: |
+          git remote add upstream https://github.com/zhom/donutbrowser.git
+          git fetch upstream main
+          git merge upstream/main --no-edit
+
+      - name: Reapply fork customizations
+        shell: pwsh
+        run: ./scripts/apply-fork-customizations.ps1
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No upstream or customization changes to commit."
+            exit 0
+          fi
+          git add -A
+          git commit -m "chore: sync upstream and reapply fork unlocks"
+          git push

@@ -26,7 +26,7 @@
 ## Features
 
 - **Unlimited browser profiles** — each fully isolated with its own fingerprint, cookies, extensions, and data
-- **Chromium & Firefox engines** — Chromium powered by [Wayfern](https://wayfern.com), Firefox powered by [Camoufox](https://camoufox.com), both with advanced fingerprint spoofing
+- **Chromium & Firefox engines** — Chromium powered by [Wayfern](https://wayfern.com), Firefox powered by [Camoufox](https://github.com/cafepromenade/camoufox), both with advanced fingerprint spoofing
 - **DNS AdBlocker** - block ads, trackers, and other unwanted content with per-profile DNS blocking
 - **Proxy support** — HTTP, HTTPS, SOCKS4, SOCKS5 per profile, with dynamic proxy URLs
 - **VPN support** — WireGuard configs per profile
@@ -117,12 +117,22 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
  </picture>
 </a>
 
-## Credits
+## Contributors
 
 <p align="center">
-  <img src="https://cdn.simpleicons.org/claude/000000" width="42" height="42" alt="Claude AI logo">
+  <a href="https://claude.ai" target="_blank">
+    <img src="https://cdn.simpleicons.org/claude" width="72" height="72" alt="Claude AI logo">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://openai.com/codex" target="_blank">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" width="72" height="72" alt="Codex logo">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://www.deepseek.com" target="_blank">
+    <img src="https://cdn.simpleicons.org/deepseek" width="72" height="72" alt="Deepseek logo">
+  </a>
   <br>
-  <strong>Made with <span aria-label="heart">♥</span> by Claude</strong>
+  <strong>Made with <span aria-label="heart">♥</span> by Claude, Codex, and Deepseek</strong>
 </p>
 
 ## Contact

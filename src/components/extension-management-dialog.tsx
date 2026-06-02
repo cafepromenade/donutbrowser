@@ -229,7 +229,6 @@ export function ExtensionManagementDialog({
       setExtensions(exts);
       setExtensionGroups(groups);
     } catch {
-      // User may not have pro subscription
       setExtensions([]);
       setExtensionGroups([]);
     } finally {

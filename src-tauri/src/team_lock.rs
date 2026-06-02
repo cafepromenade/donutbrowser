@@ -274,17 +274,13 @@ impl ProfileLockManager {
   }
 }
 
-/// Acquire profile lock if profile is sync-enabled and user has a paid subscription.
+/// Acquire profile lock if profile is sync-enabled.
 pub async fn acquire_team_lock_if_needed(
   profile: &crate::profile::BrowserProfile,
 ) -> Result<(), String> {
   if !profile.is_sync_enabled() {
     return Ok(());
   }
-  if !CLOUD_AUTH.has_active_paid_subscription().await {
-    return Ok(());
-  }
-
   // Ensure lock manager is connected
   if !PROFILE_LOCK.is_connected().await {
     PROFILE_LOCK.connect().await;
@@ -303,15 +299,11 @@ pub async fn acquire_team_lock_if_needed(
   PROFILE_LOCK.acquire_lock(&profile.id.to_string()).await
 }
 
-/// Release profile lock if profile is sync-enabled and user has a paid subscription.
+/// Release profile lock if profile is sync-enabled.
 pub async fn release_team_lock_if_needed(profile: &crate::profile::BrowserProfile) {
   if !profile.is_sync_enabled() {
     return;
   }
-  if !CLOUD_AUTH.has_active_paid_subscription().await {
-    return;
-  }
-
   if let Err(e) = PROFILE_LOCK.release_lock(&profile.id.to_string()).await {
     log::warn!("Failed to release profile lock for {}: {e}", profile.id);
   }

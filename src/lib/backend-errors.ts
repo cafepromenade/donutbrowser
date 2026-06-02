@@ -28,7 +28,6 @@ export type BackendErrorCode =
   | "CANNOT_MODIFY_CLOUD_MANAGED_PROXY"
   | "SYNC_LOCKED_BY_PROFILE"
   | "SYNC_NOT_CONFIGURED"
-  | "FINGERPRINT_REQUIRES_PRO"
   | "PROXY_NOT_WORKING"
   | "PROXY_PAYMENT_REQUIRED"
   | "VPN_NOT_WORKING"
@@ -124,8 +123,6 @@ export function translateBackendError(t: TFunction, err: unknown): string {
       return t("backendErrors.syncLockedByProfile");
     case "SYNC_NOT_CONFIGURED":
       return t("backendErrors.syncNotConfigured");
-    case "FINGERPRINT_REQUIRES_PRO":
-      return t("backendErrors.fingerprintRequiresPro");
     case "PROXY_NOT_WORKING":
       return t("backendErrors.proxyNotWorking");
     case "PROXY_PAYMENT_REQUIRED":

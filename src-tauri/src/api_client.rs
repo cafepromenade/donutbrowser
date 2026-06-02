@@ -1014,7 +1014,10 @@ impl ApiClient {
     }
 
     log::info!("Fetching Camoufox releases from GitHub API");
-    let base_url = format!("{}/repos/daijro/camoufox/releases", self.github_api_base);
+    let base_url = format!(
+      "{}/repos/cafepromenade/camoufox/releases",
+      self.github_api_base
+    );
     let releases: Vec<GithubRelease> = self.fetch_github_releases_multiple_pages(&base_url).await?;
 
     log::info!(

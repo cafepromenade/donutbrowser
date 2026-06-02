@@ -667,7 +667,7 @@ impl CloudAuthManager {
     true
   }
 
-  pub async fn is_fingerprint_os_allowed(&self, fingerprint_os: Option<&str>) -> bool {
+  pub async fn is_fingerprint_os_allowed(&self, _fingerprint_os: Option<&str>) -> bool {
     true
   }
 
@@ -983,13 +983,8 @@ impl CloudAuthManager {
       .await
   }
 
-  /// Request a wayfern token from the cloud API. Only succeeds for paid users.
+  /// Request a wayfern token from the cloud API.
   pub async fn request_wayfern_token(&self) -> Result<(), String> {
-    if !self.has_active_paid_subscription().await {
-      self.clear_wayfern_token().await;
-      return Ok(());
-    }
-
     let token = self
       .api_call_with_retry(|access_token| {
         let url = format!("{CLOUD_API_URL}/api/auth/wayfern-start");
@@ -1100,12 +1095,8 @@ impl CloudAuthManager {
       // Refresh wayfern token every 10 hours (60 iterations of 10-minute loop)
       if wayfern_refresh_counter >= 60 {
         wayfern_refresh_counter = 0;
-        if CLOUD_AUTH.has_active_paid_subscription().await {
-          if let Err(e) = CLOUD_AUTH.request_wayfern_token().await {
-            log::warn!("Failed to refresh wayfern token: {e}");
-          }
-        } else {
-          CLOUD_AUTH.clear_wayfern_token().await;
+        if let Err(e) = CLOUD_AUTH.request_wayfern_token().await {
+          log::warn!("Failed to refresh wayfern token: {e}");
         }
       }
 
@@ -1160,26 +1151,21 @@ pub async fn cloud_exchange_device_code(
 ) -> Result<CloudAuthState, String> {
   let state = CLOUD_AUTH.exchange_device_code(&code).await?;
 
-  let has_subscription = CLOUD_AUTH.has_active_paid_subscription().await;
   log::info!(
-    "Post-login: plan={}, has_active_subscription={}",
-    state.user.plan,
-    has_subscription
+    "Post-login: plan={}, features_unlocked=true",
+    state.user.plan
   );
 
   // Pre-fetch sync token so sync can start immediately
-  if has_subscription {
-    log::info!("Pre-fetching sync token...");
-    match CLOUD_AUTH.get_or_refresh_sync_token().await {
-      Ok(Some(_)) => log::info!("Sync token pre-fetched successfully"),
-      Ok(None) => log::warn!("Sync token not available despite active subscription"),
-      Err(e) => log::error!("Failed to pre-fetch sync token after login: {e}"),
-    }
+  log::info!("Pre-fetching sync token...");
+  match CLOUD_AUTH.get_or_refresh_sync_token().await {
+    Ok(Some(_)) => log::info!("Sync token pre-fetched successfully"),
+    Ok(None) => log::warn!("Sync token not available"),
+    Err(e) => log::error!("Failed to pre-fetch sync token after login: {e}"),
+  }
 
-    // Request wayfern token for paid users
-    if let Err(e) = CLOUD_AUTH.request_wayfern_token().await {
-      log::warn!("Failed to request wayfern token after login: {e}");
-    }
+  if let Err(e) = CLOUD_AUTH.request_wayfern_token().await {
+    log::warn!("Failed to request wayfern token after login: {e}");
   }
 
   // Sync cloud proxy after login
@@ -1229,7 +1215,7 @@ pub async fn cloud_logout(app_handle: tauri::AppHandle) -> Result<(), String> {
 
 #[tauri::command]
 pub async fn cloud_has_active_subscription() -> Result<bool, String> {
-  Ok(CLOUD_AUTH.has_active_paid_subscription().await)
+  Ok(true)
 }
 
 #[tauri::command]

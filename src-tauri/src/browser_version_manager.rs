@@ -670,7 +670,7 @@ impl BrowserVersionManager {
         // The actual URL will be resolved in download.rs resolve_download_url
         Ok(DownloadInfo {
           url: format!(
-            "https://github.com/daijro/camoufox/releases/download/{version}/camoufox-{{version}}-{{release}}-{os_name}.{arch_name}.zip"
+            "https://github.com/cafepromenade/camoufox/releases/download/{version}/camoufox-{{version}}-{{release}}-{os_name}.{arch_name}.zip"
           ),
           filename: format!("camoufox-{version}-{os_name}.{arch_name}.zip"),
           is_archive: true,

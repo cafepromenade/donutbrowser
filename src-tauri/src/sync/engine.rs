@@ -294,14 +294,7 @@ impl SyncProgressTracker {
 
 /// Check if sync is configured (cloud or self-hosted)
 pub fn is_sync_configured() -> bool {
-  if crate::cloud_auth::CLOUD_AUTH.has_active_paid_subscription_sync() {
-    return true;
-  }
-  let manager = SettingsManager::instance();
-  if let Ok(settings) = manager.load_settings() {
-    return settings.sync_server_url.is_some();
-  }
-  false
+  true
 }
 
 pub struct SyncEngine {
