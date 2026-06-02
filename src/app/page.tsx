@@ -46,7 +46,6 @@ import { WayfernTermsDialog } from "@/components/wayfern-terms-dialog";
 import { WelcomeDialog } from "@/components/welcome-dialog";
 import { WindowResizeWarningDialog } from "@/components/window-resize-warning-dialog";
 import { useAppUpdateNotifications } from "@/hooks/use-app-update-notifications";
-import { useCloudAuth } from "@/hooks/use-cloud-auth";
 import { useCommercialTrial } from "@/hooks/use-commercial-trial";
 import { useGroupEvents } from "@/hooks/use-group-events";
 import type { PermissionType } from "@/hooks/use-permissions";
@@ -76,12 +75,7 @@ import {
   showSyncProgressToast,
   showToast,
 } from "@/lib/toast-utils";
-import type {
-  BrowserProfile,
-  CamoufoxConfig,
-  SyncSettings,
-  WayfernConfig,
-} from "@/types";
+import type { BrowserProfile, CamoufoxConfig, WayfernConfig } from "@/types";
 
 type BrowserTypeString = "camoufox" | "wayfern";
 
@@ -223,29 +217,8 @@ export default function Home() {
     checkTrialStatus,
   } = useCommercialTrial();
 
-  // Cloud auth for cross-OS unlock
-  const { user: cloudUser } = useCloudAuth();
-  const crossOsUnlocked =
-    cloudUser?.plan !== "free" &&
-    (cloudUser?.subscriptionStatus === "active" ||
-      cloudUser?.planPeriod === "lifetime");
-
-  const [selfHostedSyncConfigured, setSelfHostedSyncConfigured] =
-    useState(false);
-
-  const checkSelfHostedSync = useCallback(async () => {
-    try {
-      const settings = await invoke<SyncSettings>("get_sync_settings");
-      const hasConfig = Boolean(
-        settings.sync_server_url && settings.sync_token,
-      );
-      setSelfHostedSyncConfigured(hasConfig && !cloudUser);
-    } catch {
-      setSelfHostedSyncConfigured(false);
-    }
-  }, [cloudUser]);
-
-  const syncUnlocked = crossOsUnlocked || selfHostedSyncConfigured;
+  const crossOsUnlocked = true;
+  const syncUnlocked = true;
 
   const [currentPage, setCurrentPage] = useState<AppPage>("profiles");
   const [accountDialogOpen, setAccountDialogOpen] = useState(false);
@@ -1458,11 +1431,6 @@ export default function Home() {
     }
   }, [isInitialized, firstRunOnboarding, checkAllPermissions]);
 
-  // Check self-hosted sync config on mount and when cloud user changes
-  useEffect(() => {
-    void checkSelfHostedSync();
-  }, [checkSelfHostedSync]);
-
   // Filter data by selected group and search query
   const filteredProfiles = useMemo(() => {
     let filtered = profiles;
@@ -1875,7 +1843,6 @@ export default function Home() {
         isOpen={syncConfigDialogOpen}
         onClose={(loginOccurred) => {
           setSyncConfigDialogOpen(false);
-          void checkSelfHostedSync();
           if (loginOccurred) {
             setSyncAllDialogOpen(true);
           }
