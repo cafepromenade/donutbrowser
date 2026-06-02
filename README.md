@@ -117,74 +117,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
  </picture>
 </a>
 
-## Contributors
+## Credits
 
-<!-- readme: collaborators,contributors -start -->
-<table>
-	<tbody>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/zhom">
-                    <img src="https://avatars.githubusercontent.com/u/2717306?v=4" width="100;" alt="zhom"/>
-                    <br />
-                    <sub><b>zhom</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/HassiyYT">
-                    <img src="https://avatars.githubusercontent.com/u/81773493?v=4" width="100;" alt="HassiyYT"/>
-                    <br />
-                    <sub><b>Hassiy</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/webees">
-                    <img src="https://avatars.githubusercontent.com/u/5155291?v=4" width="100;" alt="webees"/>
-                    <br />
-                    <sub><b>JockLee</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/yb403">
-                    <img src="https://avatars.githubusercontent.com/u/87396571?v=4" width="100;" alt="yb403"/>
-                    <br />
-                    <sub><b>yb403</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/huy97">
-                    <img src="https://avatars.githubusercontent.com/u/30153437?v=4" width="100;" alt="huy97"/>
-                    <br />
-                    <sub><b>Huy Le</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/drunkod">
-                    <img src="https://avatars.githubusercontent.com/u/9677471?v=4" width="100;" alt="drunkod"/>
-                    <br />
-                    <sub><b>drunkod</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/JorySeverijnse">
-                    <img src="https://avatars.githubusercontent.com/u/117462355?v=4" width="100;" alt="JorySeverijnse"/>
-                    <br />
-                    <sub><b>Jory Severijnse</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/ThiagoMafra-Integrare">
-                    <img src="https://avatars.githubusercontent.com/u/222241596?v=4" width="100;" alt="ThiagoMafra-Integrare"/>
-                    <br />
-                    <sub><b>Thiago Mafra</b></sub>
-                </a>
-            </td>
-		</tr>
-	<tbody>
-</table>
-<!-- readme: collaborators,contributors -end -->
+<p align="center">
+  <img src="https://cdn.simpleicons.org/claude/000000" width="42" height="42" alt="Claude AI logo">
+  <br>
+  <strong>Made with <span aria-label="heart">♥</span> by Claude</strong>
+</p>
 
 ## Contact
 

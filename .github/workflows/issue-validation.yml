@@ -23,7 +23,7 @@ env:
 
 jobs:
   analyze-issue:
-    if: github.repository == 'zhom/donutbrowser' && github.event_name == 'issues'
+    if: github.repository == 'cafepromenade/donutbrowser' && github.event_name == 'issues'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -100,7 +100,7 @@ jobs:
             downloads, manages, and launches anti-detect browser profiles. In-scope for bug
             reports about profile management, downloads, sync, proxy, VPN, the launcher UI,
             its API, MCP server, and the bundled `donut-sync` self-hosted server.
-          - **Wayfern** — a Chromium fork maintained by zhom (the same maintainer). Wayfern
+          - **Wayfern** — a Chromium fork maintained by cafepromenade. Wayfern
             bugs are in-scope here unless they are obviously upstream Chromium issues.
           - **Camoufox** — a Firefox fork by daijro, used by Donut but maintained in a
             separate repository. Bugs about Camoufox's *internal* behavior are outside
@@ -157,7 +157,7 @@ jobs:
             "clear", "reasonable", "well-thought-out", etc.
           - **AI-generated / template-violating report**: report doesn't follow the
             template, may cite "official documentation" via context7, deepwiki, or any
-            non-`donutbrowser.com` / non-`github.com/zhom` URL. The only authoritative
+            non-`donutbrowser.com` / non-`github.com/cafepromenade` URL. The only authoritative
             sources are this GitHub repo and donutbrowser.com.
           - **Speculation about internals**: never write a "Possible cause" / "Likely
             cause" / "Root cause" section. Never cite internal file paths or line
@@ -348,7 +348,7 @@ jobs:
 
           - `bug-in-scope`: ask for what is missing using the user's reported OS log path. Be concrete about how to obtain logs.
           - `bug-upstream-camoufox`: redirect ONLY. One sentence acknowledging, then say this is outside the scope of this project — ask the user to first search https://github.com/daijro/camoufox/issues for a matching report and, if none exists, to open one there themselves. Do NOT phrase it as "the maintainer does not contribute" or anything personal — keep it strictly about scope. Do NOT ask for Donut logs. Stop after that.
-          - `bug-template-violation` or `ai-generated-junk`: politely ask the user to refile using the bug-report template (the Operating System, Donut Browser version, Which browser, Steps to reproduce, Error logs sections). If they cited "documentation" from any non-`donutbrowser.com`/non-`github.com/zhom` URL (e.g. context7, deepwiki), gently note that those are AI-generated third-party summaries and the only authoritative sources are this repo and donutbrowser.com.
+          - `bug-template-violation` or `ai-generated-junk`: politely ask the user to refile using the bug-report template (the Operating System, Donut Browser version, Which browser, Steps to reproduce, Error logs sections). If they cited "documentation" from any non-`donutbrowser.com`/non-`github.com/cafepromenade` URL (e.g. context7, deepwiki), gently note that those are AI-generated third-party summaries and the only authoritative sources are this repo and donutbrowser.com.
           - `feature-request`: one neutral sentence acknowledging, then ask only what is genuinely needed (concrete use case, whether a workaround would suffice). Do NOT validate.
           - `fork-request`: one neutral sentence acknowledging the request. Note that this would substantially increase support burden and the maintainer evaluates such requests on a case-by-case basis. Ask whether the alternative fork supports all platforms the user uses (macOS / Windows / Linux). No "clear enhancement" language.
           - `regression`: do NOT call known/expected. Ask which exact previous version was the last working one, what changed in the user's environment between then and now, and the specific delta in symptoms.
@@ -475,7 +475,7 @@ jobs:
           gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file /tmp/ai-comment.txt
 
   analyze-pr:
-    if: github.repository == 'zhom/donutbrowser' && github.event_name == 'pull_request_target' && github.actor != 'dependabot[bot]'
+    if: github.repository == 'cafepromenade/donutbrowser' && github.event_name == 'pull_request_target' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -608,7 +608,7 @@ jobs:
 
   opencode-command:
     if: |
-      github.repository == 'zhom/donutbrowser' &&
+      github.repository == 'cafepromenade/donutbrowser' &&
       (github.event_name == 'issue_comment' || github.event_name == 'pull_request_review_comment') &&
       (contains(github.event.comment.body, ' /oc') ||
        startsWith(github.event.comment.body, '/oc') ||

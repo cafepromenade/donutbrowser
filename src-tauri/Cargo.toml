@@ -2,7 +2,7 @@
 name = "donutbrowser"
 version = "0.25.2"
 description = "Simple Yet Powerful Anti-Detect Browser"
-authors = ["zhom@github"]
+authors = ["cafepromenade@github"]
 edition = "2021"
 default-run = "donutbrowser"
 
@@ -90,7 +90,7 @@ clap = { version = "4", features = ["derive"] }
 async-socks5 = "0.6"
 
 # Camoufox/Playwright integration
-playwright = { git = "https://github.com/zhom/playwright-rust", branch = "master" }
+playwright = { git = "https://github.com/cafepromenade/playwright-rust", branch = "master" }
 
 # Wayfern CDP integration
 tokio-tungstenite = { version = "0.29", features = ["native-tls"] }
